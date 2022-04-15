@@ -40,20 +40,20 @@ def main():
 
     defaultport = [135,139,445,1433,3306,3389,5944]
 
-    if ',' in port:#xxx.py -i 127.0.0.1 -p 80,21,89
+    if ',' in port:#portscan.py -i 127.0.0.1 -p 80,21,89
         port = port.split(',')
         a = []
         for x in port:
             a.append(x)
         scan(ip,a)
-    elif '-' in port:#xxx.py -i 127.0.0.1 -p 80-89
+    elif '-' in port:#portscan.py -i 127.0.0.1 -p 80-89
         port = port.split('-')
         s = int(port[0])
         e = int(port[1])
         rscan(ip,s,e)
-    elif "all" in port:#xxx.py -i 127.0.0.1 all
+    elif "all" in port:#portscan.py -i 127.0.0.1 all
         rscan(ip,1,65535)
-    elif "default" in port:#xxx.py -i 127.0.0.1 -p default
+    elif "default" in port:#portscan.py -i 127.0.0.1 -p default
         scan(ip,defaultport)
 
     pass
